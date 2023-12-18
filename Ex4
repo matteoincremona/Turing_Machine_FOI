@@ -1,0 +1,34 @@
+input: 'bba'
+blank: ' '
+start state: q0
+table:
+
+  q0:
+    'a' : {R : q0}
+    'b' : {R : q0}
+    ' ' : {L : q1}
+
+  q1:
+    'a' : {write: '/', R : q2}
+    'b' : {write: '/', R : q3}
+    '/' : {L : q1}
+    ' ' : {R : qa}
+    
+  q2:
+    'a' : {R : q2}
+    'b' : {R : q2}
+    '/' : {R : q2}
+    ' ' : {write: 'a', L : q4}
+    
+  q3:
+    'a' : {R : q3}
+    'b' : {R : q3}
+    '/' : {R : q3}
+    ' ' : {write: 'b', L : q4}
+    
+  q4:
+    'a' : {L : q4}
+    'b' : {L : q4}
+    '/' : {L : q1}
+    
+  qa:
