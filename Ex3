@@ -6,10 +6,9 @@ blank: ' '
 start state: q0
 table:
 
-# I am assuming that strings cannot contain empty spaces ('  HELLO' not accepted)
+# I am assuming that this TM accepts empty strings (' ' is accepted)
 
   q0:
-    ' ': {L : qr} # Empty strings not accepted ('  ' not accepted)
     'A': {write: 'X', R: q1}
     'B': {write: 'Y', R: q1}
     'C': {write: 'Z', R: q1}
@@ -36,6 +35,7 @@ table:
     'X': {write: 'U', R: q1}
     'Y': {write: 'V', R: q1}
     'Z': {write: 'W', R: q1}
+    ' ': {R : qa}
 
   q1:
     'A': {write: 'D', R: q0}
@@ -67,5 +67,3 @@ table:
     ' ': {R: qa}
     
   qa:
-  
-  qr:
