@@ -6,7 +6,7 @@ blank: ' '
 start state: q0
 table:
 
-# I am assuming that strings cannot start with spaces ('  1x1' not accepted)
+# I am assuming that strings cannot contain with spaces ('  1x1' not accepted)
 
   q0:
     '1' : {R : q_od}
