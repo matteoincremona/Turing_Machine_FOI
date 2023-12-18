@@ -6,7 +6,7 @@ blank: ' '
 start state: q0
 table:
 
-# I am assuming that strings cannot start with spaces ('  aba' not accepted)
+# I am assuming that strings cannot contain spaces ('  aba' not accepted)
 
   q0:
     ' ' : {R: qr} # Empty strings not accepted ('  ' not accepted)
