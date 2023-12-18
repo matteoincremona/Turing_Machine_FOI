@@ -1,0 +1,53 @@
+# Ex. 1
+
+input: 'bggehabbb'
+blank: ' '
+start state: q0
+table:
+
+# I am assuming that strings cannot start with spaces ('  aba' not accepted)
+
+  q0:
+    ' ' : {R: qr} # Empty strings not accepted ('  ' not accepted)
+    'b' : {R: q0}
+    'c' : {R: q0}
+    'd' : {R: q0}
+    'f' : {R: q0}
+    'g' : {R: q0}
+    'h' : {R: q0}
+    'a' : {R: q1}
+    'e' : {R: q1}
+
+  q1:
+    'a' : {R: q1}
+    'e' : {R: q1}
+    'b' : {R: q2}
+    'c' : {R: q2}
+    'd' : {R: q2}
+    'f' : {R: q2}
+    'g' : {R: q2}
+    'h' : {R: q2}
+    ' ' : {R: qr}
+  q2:
+    'a' : {R: q3}
+    'e' : {R: q3}
+    'b' : {R: q0}
+    'c' : {R: q0}
+    'd' : {R: q0}
+    'f' : {R: q0}
+    'g' : {R: q0}
+    'h' : {R: q0}
+    ' ' : {R: qr}
+  q3:
+    ' ' : {R: qa}
+    'b' : {R: q3}
+    'c' : {R: q3}
+    'd' : {R: q3}
+    'f' : {R: q3}
+    'g' : {R: q3}
+    'h' : {R: q3}
+    'a' : {R: q3}
+    'e' : {R: q3}
+    
+  qa:
+  qr:
