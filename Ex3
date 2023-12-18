@@ -1,0 +1,70 @@
+# Ex. 3
+
+input: 'HELLO'
+blank: ' '
+start state: q0
+table:
+
+# I am assuming that strings cannot start with spaces ('  HELLO' not accepted)
+
+  q0:
+    ' ': {L : qr} # Empty strings not accepted ('  ' not accepted)
+    'A': {write: 'X', R: q1}
+    'B': {write: 'Y', R: q1}
+    'C': {write: 'Z', R: q1}
+    'D': {write: 'A', R: q1}
+    'E': {write: 'B', R: q1}
+    'F': {write: 'C', R: q1}
+    'G': {write: 'D', R: q1}
+    'H': {write: 'E', R: q1}
+    'I': {write: 'F', R: q1}
+    'J': {write: 'G', R: q1}
+    'K': {write: 'H', R: q1}
+    'L': {write: 'I', R: q1}
+    'M': {write: 'J', R: q1}
+    'N': {write: 'K', R: q1}
+    'O': {write: 'L', R: q1}
+    'P': {write: 'M', R: q1}
+    'Q': {write: 'N', R: q1}
+    'R': {write: 'O', R: q1}
+    'S': {write: 'P', R: q1}
+    'T': {write: 'Q', R: q1}
+    'U': {write: 'R', R: q1}
+    'V': {write: 'S', R: q1}
+    'W': {write: 'T', R: q1}
+    'X': {write: 'U', R: q1}
+    'Y': {write: 'V', R: q1}
+    'Z': {write: 'W', R: q1}
+
+  q1:
+    'A': {write: 'D', R: q0}
+    'B': {write: 'E', R: q0}
+    'C': {write: 'F', R: q0}
+    'D': {write: 'G', R: q0}
+    'E': {write: 'H', R: q0}
+    'F': {write: 'I', R: q0}
+    'G': {write: 'J', R: q0}
+    'H': {write: 'K', R: q0}
+    'I': {write: 'L', R: q0}
+    'J': {write: 'M', R: q0}
+    'K': {write: 'N', R: q0}
+    'L': {write: 'O', R: q0}
+    'M': {write: 'P', R: q0}
+    'N': {write: 'Q', R: q0}
+    'O': {write: 'R', R: q0}
+    'P': {write: 'S', R: q0}
+    'Q': {write: 'T', R: q0}
+    'R': {write: 'U', R: q0}
+    'S': {write: 'V', R: q0}
+    'T': {write: 'W', R: q0}
+    'U': {write: 'X', R: q0}
+    'V': {write: 'Y', R: q0}
+    'W': {write: 'Z', R: q0}
+    'X': {write: 'A', R: q0}
+    'Y': {write: 'B', R: q0}
+    'Z': {write: 'C', R: q0}
+    ' ': {R: qa}
+    
+  qa:
+  
+  qr:
