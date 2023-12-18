@@ -1,1 +1,54 @@
-E
+# Ex. 2
+
+input: '0x0'
+blank: ' '
+start state: q0
+table:
+
+# I am assuming that strings cannot start with spaces ('  1x1' not accepted)
+
+  q0:
+    '1' : {R : q_od}
+    '0' : {R : q_ev}
+    ' ' : {R : qr} # Empty strings not accepted ('  ' not accepted)
+    'x' : {R : qr}
+  
+  q_od:
+    'x' : {R : q_x_od}
+    ' ' : {R : qr}
+    '1' : {R : qr}
+    '0' : {R : qr}
+
+  q_ev:
+    'x' : {R : q_x_ev}
+    ' ' : {R : qr}
+    '1' : {R : qr}
+    '0' : {R : qr}
+
+  q_x_od:
+    '0' : {R : q_x_od}
+    '1' : {R : q1}
+    'x' : {R : qr}
+    ' ' : {R : qr}
+  
+  q1:
+    '0' : {R: q_x_od}
+    '1' : {R: q1}
+    ' ' : {R: qa}
+    'x' : {R : qr}
+  
+  q_x_ev:
+    '0' : {R: q2}
+    '1' : {R: q_x_ev}
+    'x' : {R : qr}
+    ' ' : {R : qr}
+  
+  q2:
+    '0' : {R: q2}
+    '1' : {R: q_x_ev}
+    ' ' : {R: qa}
+    'x' : {R : qr}
+  
+  qa:
+  
+  qr:
